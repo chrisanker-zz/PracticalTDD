@@ -9,7 +9,7 @@ public class ValidateISBNTest {
     ValidateISBN validator = new ValidateISBN();
 
     @Test
-    public void checkValidISBN(){
+    public void checkValid10DigitISBN(){
         boolean result = validator.checkISBN("0395489326");
         assertTrue("first value", result);
         result = validator.checkISBN("0140177396");
@@ -17,7 +17,7 @@ public class ValidateISBNTest {
     }
 
     @Test
-    public void ISBNNumbersEndingInAnXAreValid(){
+    public void TenDigitISBNNumbersEndingInAnXAreValid(){
         boolean result = validator.checkISBN("140274577X");
         assertTrue(result);
     }
@@ -31,7 +31,7 @@ public class ValidateISBNTest {
     }
 
     @Test
-    public void checkAnInvalidISBN(){
+    public void checkAnInvalid10DigitISBN(){
         boolean result = validator.checkISBN("0395489327");
         assertFalse(result);
     }
