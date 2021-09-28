@@ -28,4 +28,9 @@ public class ValidateISBNTest {
         ValidateISBN validator = new ValidateISBN();
         validator.checkISBN("123456789");
     }
+    @Test(expected = NumberFormatException.class)
+    public void onlyNumbersAreAllowed(){
+        ValidateISBN validator = new ValidateISBN();
+        validator.checkISBN("helloworld");
+    }
 }
