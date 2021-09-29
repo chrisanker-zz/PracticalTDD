@@ -30,4 +30,14 @@ public class StockManagementTests {
         String locatorCode = stockManager.getLocatorCode(isbn);
         assertEquals("9326J5", locatorCode);
     }
+
+    @Test
+    public void databaseIsUsedIfDataIsPresent(){
+        fail();
+    }
+
+    @Test
+    public void webserviceIsUsedIfDataIsNotPresentInDatabase(){
+        fail();
+    }
 }
