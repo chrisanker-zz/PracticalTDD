@@ -9,14 +9,23 @@ public class StockManagementTests {
     @Test
     public void testCanGeACorrectLocatorCode(){
 
-        ExternalISBNDataService testService = new ExternalISBNDataService() {
+        ExternalISBNDataService testWebService = new ExternalISBNDataService() {
             @Override
             public Book lookup(String isbn) {
                 return new Book(isbn,"The Lord of The Rings", "J.R.R. Tolkien");
             }
         };
+
+        ExternalISBNDataService testDatabaseService = new ExternalISBNDataService() {
+            @Override
+            public Book lookup(String isbn) {
+                return null;
+            }
+        };
+
         StockManager stockManager = new StockManager();
-        stockManager.setService(testService);
+        stockManager.setWebService(testWebService);
+        stockManager.setDatabaseService(testDatabaseService);
         String isbn = "0395489326";
         String locatorCode = stockManager.getLocatorCode(isbn);
         assertEquals("9326J5", locatorCode);
